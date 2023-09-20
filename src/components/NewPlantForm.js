@@ -2,11 +2,12 @@ import React, { useState } from "react";
 
 function NewPlantForm({ setPlants }) {
 
-  const [formData, setFormData] = useState({
+  const blankForm = {
     "name": "",
     "image": "",
     "price": 0
-  })
+  }
+  const [formData, setFormData] = useState(blankForm)
 
   function handleChange(event){
     setFormData(prev => {
@@ -27,7 +28,7 @@ function NewPlantForm({ setPlants }) {
     .then(resp => resp.json())
     .then(newData => setPlants(prev => [newData, ...prev]))
 
-    
+    setFormData(blankForm)
   }
 
   return (
