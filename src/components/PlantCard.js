@@ -21,7 +21,7 @@ function PlantCard({ id, name, image, price, setPlants }) {
       headers:{
         'Content-Type':'application/json'
       },
-      body:JSON.stringify({['price']:parseInt(newPrice)})
+      body:JSON.stringify({['price']:parseFloat(newPrice)})
     })
     .then(resp => resp.json())
     .then(upData => setPlants(prev => 
